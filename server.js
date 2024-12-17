@@ -7,6 +7,11 @@ const app = express() // Variável app recebe o Express
 app.use(express.json()); // Para trabalhar com JSON
 app.use(cors()); // Para habilitar CORS (Qualquer página pode acessar o backend)
 
+// Rota de Teste
+app.get('/', (req, res) => {
+    res.send('API funcionando corretamente!')
+})
+
 // Rota POST (Criar)
 app.post('/usuarios', async (req, res) => {
     // Criar usuário e inserir na base de dados
