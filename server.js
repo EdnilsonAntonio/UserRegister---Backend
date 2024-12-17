@@ -5,9 +5,7 @@ const prisma = new PrismaClient() // Instanciar a biblioteca Prisma
 
 const app = express() // Variável app recebe o Express
 app.use(express.json()); // Para trabalhar com JSON
-app.use(cors({
-    origin: 'http://localhost:5173/'
-})); // Para habilitar CORS (Qualquer página pode acessar o backend)
+app.use(cors()); // Para habilitar CORS (Qualquer página pode acessar o backend)
 
 // Rota de Teste
 app.get('/', async (req, res) => {
