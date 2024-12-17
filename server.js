@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 })
 
 // Rota POST (Criar)
-app.post('/usuarios', async (req, res) => {
+app.post('/usuarios_create', async (req, res) => {
     // Criar usuário e inserir na base de dados
     await prisma.user.create({
         data: {
