@@ -8,12 +8,14 @@ app.use(express.json()); // Para trabalhar com JSON
 app.use(cors()); // Para habilitar CORS (Qualquer página pode acessar o backend)
 
 // Rota de Teste
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
+    let users = [];
+    users = await prisma.user.findMany();
     res.send('API funcionando corretamente!')
 })
 
 // Rota POST (Criar)
-app.post('/usuarios_create', async (req, res) => {
+app.post('/usuarios', async (req, res) => {
     // Criar usuário e inserir na base de dados
     await prisma.user.create({
         data: {
